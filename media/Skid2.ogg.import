@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://b27dn108r6eaf"
+path="res://.godot/imported/Skid2.ogg-d629650b0d52af33673694e43ff78473.oggvorbisstr"
+
+[deps]
+
+source_file="res://media/Skid2.ogg"
+dest_files=["res://.godot/imported/Skid2.ogg-d629650b0d52af33673694e43ff78473.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

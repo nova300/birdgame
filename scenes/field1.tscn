@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfnv6mwu4clbb"]
+[gd_scene load_steps=14 format=3 uid="uid://bfnv6mwu4clbb"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_k6rno"]
 [ext_resource type="Texture2D" uid="uid://cilyf7j6pwcg4" path="res://texture/enemy1.png" id="1_k31en"]
 [ext_resource type="Texture2D" uid="uid://ckqpfx44x67ln" path="res://texture/tilemap.png" id="2_mgp3f"]
-[ext_resource type="AudioStream" uid="uid://cxeakrc80m7o8" path="res://media/skid.ogg" id="3_bamiq"]
+[ext_resource type="AudioStream" uid="uid://b27dn108r6eaf" path="res://media/Skid2.ogg" id="3_77mwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doi45"]
 size = Vector2(12, 18)
@@ -20,6 +20,10 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource( "1_k31en" )
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d431"]
+atlas = ExtResource( "1_k31en" )
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rrdl0"]
 animations = [{
 "frames": [SubResource( "AtlasTexture_7ukfy" )],
@@ -31,32 +35,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [SubResource( "AtlasTexture_7d431" )],
+"loop": true,
+"name": &"still",
+"speed": 5.0
 }]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4bje6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5rbp"]
 texture = ExtResource( "2_mgp3f" )
+0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/modulate = Color(0.415686, 0.74902, 0.776471, 1)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
-0:1/0 = 0
-0:1/0/modulate = Color(0.415686, 0.74902, 0.776471, 1)
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-1:0/0/modulate = Color(0.415686, 0.74902, 0.776471, 1)
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
-1:1/0 = 0
-1:1/0/modulate = Color(0.415686, 0.74902, 0.776471, 1)
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, 16)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
@@ -65,26 +60,12 @@ texture = ExtResource( "2_mgp3f" )
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 3, 3, 0, -8, 0, -8, -8, 8, -8)
+4:0/size_in_atlas = Vector2i(2, 2)
 4:0/0 = 0
 4:0/0/modulate = Color(0.631373, 0.407843, 0.235294, 1)
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:1/0 = 0
-4:1/0/modulate = Color(0.631373, 0.407843, 0.235294, 1)
-4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:1/0/physics_layer_0/angular_velocity = 0.0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:0/0 = 0
-5:0/0/modulate = Color(0.631373, 0.407843, 0.235294, 1)
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:1/0 = 0
-5:1/0/modulate = Color(0.631373, 0.407843, 0.235294, 1)
-5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:1/0/physics_layer_0/angular_velocity = 0.0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_gjqps"]
 physics_layer_0/collision_layer = 1
@@ -94,7 +75,7 @@ sources/1 = SubResource( "TileSetAtlasSource_c5rbp" )
 [node name="field1" type="Node2D"]
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(153, 99)
+position = Vector2(459, 66)
 script = ExtResource( "1_k6rno" )
 __meta__ = {
 "_edit_group_": true
@@ -111,22 +92,25 @@ position = Vector2(-2, 2)
 shape = SubResource( "RectangleShape2D_doi45" )
 
 [node name="Label" type="Label" parent="player"]
-offset_left = -143.0
-offset_top = -84.0
-offset_right = -37.0
-offset_bottom = -37.0
+offset_left = -87.0
+offset_top = -43.0
+offset_right = 19.0
+offset_bottom = 4.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 modulate = Color(0.360784, 0.670588, 0.368627, 1)
 frames = SubResource( "SpriteFrames_rrdl0" )
-animation = &"run"
-frame = 1
-playing = true
+animation = &"still"
 
 [node name="sndskid" type="AudioStreamPlayer" parent="player"]
-stream = ExtResource( "3_bamiq" )
+stream = ExtResource( "3_77mwm" )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( "TileSet_gjqps" )
 format = 2
-layer_0/tile_data = PackedInt32Array(589826, 1, 0, 655362, 1, 1, 589827, 65537, 0, 655363, 65537, 1, 589828, 131073, 0, 589830, 196609, 0, 589831, 1, 0, 655367, 1, 1, 589832, 65537, 0, 655368, 65537, 1, 589833, 1, 0, 655369, 1, 1, 589834, 65537, 0, 655370, 65537, 1, 589835, 1, 0, 655371, 1, 1, 589836, 65537, 0, 655372, 65537, 1, 589837, 1, 0, 655373, 1, 1, 458766, 262145, 0, 524302, 262145, 1, 589838, 65537, 0, 655374, 65537, 1, 458767, 327681, 0, 524303, 327681, 1, 589839, 1, 0, 655375, 1, 1, 589840, 65537, 0, 655376, 65537, 1, 720913, 65537, 0, 720914, 65537, 0, 720915, 65537, 0, 720916, 65537, 0, 720917, 65537, 0, 720918, 65537, 0, 720919, 65537, 0, 720920, 65537, 0, 720921, 65537, 0, 720922, 65537, 0, 720923, 65537, 0, 720924, 65537, 0, 720925, 65537, 0, 720926, 65537, 0, 720927, 65537, 0, 720928, 65537, 0, 720929, 65537, 0, 720930, 65537, 0, 720931, 65537, 0, 720932, 65537, 0, 720933, 65537, 0, 720934, 65537, 0, 65575, 65537, 0, 131111, 65537, 0, 196647, 65537, 0, 262183, 65537, 0, 327719, 65537, 0, 393255, 65537, 0, 458791, 65537, 0, 524327, 65537, 0, 589863, 65537, 0, 655399, 65537, 0, 720935, 65537, 0)
+layer_0/tile_data = PackedInt32Array(262147, 1, 0, 262149, 1, 0, 262151, 1, 0, 393223, 1, 0, 524295, 1, 0, 655367, 1, 0, 393225, 262145, 0, 524297, 262145, 0, 655369, 1, 0, 524299, 262145, 0, 655371, 1, 0, 2097164, 1, 0, 655373, 1, 0, 262158, 1, 0, 2097166, 1, 0, 655375, 1, 0, 262160, 1, 0, 655377, 1, 0, 131090, 1, 0, 262162, 1, 0, 393234, 1, 0, 524306, 1, 0, 393236, 1, 0, 393238, 1, 0, 1048599, 1, 0, 393240, 1, 0, 1048601, 1, 0, 393242, 1, 0, 1048603, 1, 0, 393244, 1, 0, 1048605, 1, 0, 393246, 1, 0, 1048607, 1, 0, 393248, 1, 0, 1048609, 1, 0, 393250, 1, 0, 1048611, 1, 0, 393252, 1, 0, 1048613, 1, 0, 393254, 1, 0, 1048615, 1, 0, 393256, 1, 0, 1048617, 1, 0, 393258, 1, 0, 1048619, 1, 0, 393260, 1, 0, 1048621, 1, 0, 393262, 1, 0, 1048623, 1, 0, 393264, 1, 0, 1048625, 1, 0, 393266, 1, 0, 1048627, 1, 0, 393268, 1, 0, 1048629, 1, 0, 393270, 1, 0, 1048631, 1, 0, 393272, 1, 0, 1048633, 1, 0, 1048635, 1, 0, 1048637, 1, 0, 63, 1, 0, 131135, 1, 0, 262207, 1, 0, 393279, 1, 0, 524351, 1, 0, 655423, 1, 0, 786495, 1, 0, 917567, 1, 0, 1048639, 1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 28)
+current = true
+zoom = Vector2(0.3, 0.3)
