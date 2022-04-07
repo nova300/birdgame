@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8h2xlaxp8q5k"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_70t6w"]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_70t6w" )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -229.0
+offset_right = 99.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+__meta__ = {
+"_edit_layout_mode": 1,
+"_edit_use_custom_anchors": false
+}
+
+[node name="start" type="Button" parent="VBoxContainer"]
+offset_right = 198.0
+offset_bottom = 31.0
+text = "Start"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+offset_top = 35.0
+offset_right = 198.0
+offset_bottom = 66.0
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

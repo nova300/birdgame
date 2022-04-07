@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c2tuvg1kq1rgu"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 122.0
+offset_bottom = 42.0
+rect_scale = Vector2(3.13463, 2.68238)
+text = "0000000"
