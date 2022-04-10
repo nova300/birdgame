@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxicvw2vwlvlr"]
+
+[ext_resource type="Texture2D" uid="uid://cilyf7j6pwcg4" path="res://texture/enemy1.png" id="1_3u8jh"]
+[ext_resource type="Script" path="res://scenes/mob_1.gd" id="1_bcrkr"]
+[ext_resource type="AudioStream" uid="uid://c8wlo668ktbk1" path="res://media/oof2.wav" id="3_r7aei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sidyg"]
+atlas = ExtResource( "1_3u8jh" )
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jjoc"]
+atlas = ExtResource( "1_3u8jh" )
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n642"]
+atlas = ExtResource( "1_3u8jh" )
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxyqa"]
+animations = [{
+"frames": [SubResource( "AtlasTexture_sidyg" ), SubResource( "AtlasTexture_3jjoc" )],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [SubResource( "AtlasTexture_3n642" )],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33ce4"]
+size = Vector2(12, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ka6b"]
+size = Vector2(12, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw35x"]
+size = Vector2(32, 24)
+
+[node name="Mob" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource( "1_bcrkr" )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+frames = SubResource( "SpriteFrames_bxyqa" )
+animation = &"falling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0.5)
+shape = SubResource( "RectangleShape2D_33ce4" )
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 4)
+shape = SubResource( "RectangleShape2D_4ka6b" )
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "3_r7aei" )
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-3, -1)
+shape = SubResource( "RectangleShape2D_iw35x" )
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

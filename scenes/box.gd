@@ -13,9 +13,7 @@ func _physics_process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("secondary") && block == false:
 		var bodies = $Area2D.get_overlapping_bodies()
-		print("block")
 		for body in bodies:
-			print(body.name)
 			if body.name == "player" and get_node("../player").canhold == true:
 				$sndpickup.play()
 				held = true
@@ -33,4 +31,3 @@ func _input(event):
 			apply_central_impulse(Vector2(-250, -100))
 	if Input.is_action_just_released("secondary"):
 		block = false
-		print("unblock")

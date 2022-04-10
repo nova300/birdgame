@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfnv6mwu4clbb"]
+[gd_scene load_steps=10 format=3 uid="uid://bfnv6mwu4clbb"]
 
 [ext_resource type="PackedScene" uid="uid://f3exblbunshd" path="res://scenes/player.tscn" id="1_y3w3u"]
 [ext_resource type="Texture2D" uid="uid://ckqpfx44x67ln" path="res://texture/tilemap.png" id="2_mgp3f"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://tgl71qrfr4dh" path="res://media/music1.mp3" id="3_y10kp"]
 [ext_resource type="Texture2D" uid="uid://nuefcry6kia5" path="res://texture/background1.png" id="5_tmd1t"]
 [ext_resource type="PackedScene" uid="uid://c2tuvg1kq1rgu" path="res://scenes/ui.tscn" id="6_bnpo1"]
+[ext_resource type="PackedScene" uid="uid://cxicvw2vwlvlr" path="res://scenes/mob_1.tscn" id="7_8hn63"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5rbp"]
 texture = ExtResource( "2_mgp3f" )
@@ -31,11 +32,11 @@ texture = ExtResource( "2_mgp3f" )
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_gjqps"]
-physics_layer_0/collision_layer = 5
+physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 7
 sources/1 = SubResource( "TileSetAtlasSource_c5rbp" )
 
-[node name="field1" type="Node2D"]
+[node name="level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(91, 18)
@@ -50,14 +51,8 @@ position = Vector2(175, 248)
 position = Vector2(352, 193)
 
 [node name="player" parent="." instance=ExtResource( "1_y3w3u" )]
+show_behind_parent = true
 position = Vector2(40, 248)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-position = Vector2(247, 194)
-scale = Vector2(84.0039, 75.265)
-zoom = Vector2(0.15, 0.15)
-limit_left = -1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "3_y10kp" )
@@ -71,3 +66,6 @@ scale = Vector2(3.25364, 3.12238)
 texture = ExtResource( "5_tmd1t" )
 
 [node name="ui" parent="." instance=ExtResource( "6_bnpo1" )]
+
+[node name="Mob1" parent="." instance=ExtResource( "7_8hn63" )]
+position = Vector2(262, 156)

@@ -43,8 +43,8 @@ volume_db = -6.292
 stream = ExtResource( "4_tibat" )
 volume_db = -6.192
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="box_sub" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box_sub"]
 position = Vector2(0, -4)
 shape = SubResource( "RectangleShape2D_0co62" )
